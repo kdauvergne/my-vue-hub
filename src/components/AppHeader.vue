@@ -12,8 +12,11 @@
           @click="closeMenu"
         >
           <li><RouterLink to="/lessons">Toutes les leçons</RouterLink></li>
-          <li><a>Exercice 1</a></li>
-          <li><a>Exercice 2</a></li>
+          <li v-for="lesson in lessons" :key="lesson.path">
+            <RouterLink :to="lesson.path">
+              {{ lesson.meta.title }}
+            </RouterLink>
+          </li>
         </ul>
       </div>
       <div class="dropdown dropdown-end">
@@ -31,7 +34,12 @@
   </div>
 </template>
 <script setup>
-import { RouterLink } from "vue-router";
+import { RouterLink, useRouter } from "vue-router";
+
+// Toutes les routes qui commencent par /lessons/ deviennent des liens du menu
+const lessons = useRouter()
+  .getRoutes()
+  .filter((route) => route.path.startsWith("/lessons/"));
 
 // Le dropdown daisyUI reste ouvert tant qu'il a le focus : on le retire après un clic sur un lien
 const closeMenu = () => document.activeElement?.blur();
