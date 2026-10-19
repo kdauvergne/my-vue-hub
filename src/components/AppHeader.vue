@@ -26,8 +26,11 @@
           class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm"
           @click="closeMenu"
         >
-          <li><a>Exercice 1</a></li>
-          <li><a>Exercice 2</a></li>
+          <li v-for="exercice in exercices" :key="exercice.path">
+            <RouterLink :to="exercice.path">
+              {{ exercice.meta.title }}
+            </RouterLink>
+          </li>
         </ul>
       </div>
     </div>
@@ -40,6 +43,10 @@ import { RouterLink, useRouter } from "vue-router";
 const lessons = useRouter()
   .getRoutes()
   .filter((route) => route.path.startsWith("/lessons/"));
+
+const exercices = useRouter()
+  .getRoutes()
+  .filter((route) => route.path.startsWith("/exercices/"));
 
 // Le dropdown daisyUI reste ouvert tant qu'il a le focus : on le retire après un clic sur un lien
 const closeMenu = () => document.activeElement?.blur();

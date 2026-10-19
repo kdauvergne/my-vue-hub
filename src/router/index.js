@@ -48,6 +48,12 @@ const router = createRouter({
       component: () => import("../views/lessons/lesson-event-binding.vue"),
       meta: { title: "Event binding" },
     },
+    {
+      path: "/exercices/exercice-text-interpolation",
+      component: () =>
+        import("../views/exercices/ExerciceTextInterpolation.vue"),
+      meta: { title: "Exercice 1" },
+    },
   ],
 });
 export default router;
