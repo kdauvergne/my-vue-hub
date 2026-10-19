@@ -1,1 +1,9 @@
-<template>FOOTER</template>
+<template>
+  <footer
+    class="footer sm:footer-horizontal footer-center bg-base-300 text-base-content p-4"
+  >
+    <aside>
+      <p>Copyright © Key-Sône Dauvergne</p>
+    </aside>
+  </footer>
+</template>
