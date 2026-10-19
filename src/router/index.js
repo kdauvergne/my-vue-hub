@@ -54,6 +54,12 @@ const router = createRouter({
         import("../views/exercices/ExerciceTextInterpolation.vue"),
       meta: { title: "Exercice 1" },
     },
+    {
+      path: "/exercices/exercice-attribute-binding",
+      component: () =>
+        import("../views/exercices/ExerciceAttributeBinding.vue"),
+      meta: { title: "Exercice 2" },
+    },
   ],
 });
 export default router;
