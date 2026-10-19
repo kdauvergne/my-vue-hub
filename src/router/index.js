@@ -65,6 +65,11 @@ const router = createRouter({
       component: () => import("../views/exercices/ExerciceEventBinding.vue"),
       meta: { title: "Exercice 3" },
     },
+    {
+      path: "/tp/tp-databinding",
+      component: () => import("../views/tp/TP-databinding.vue"),
+      meta: { title: "TP Databinding" },
+    },
   ],
 });
 export default router;
