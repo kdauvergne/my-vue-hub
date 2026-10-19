@@ -51,12 +51,26 @@
             </tr>
             <!-- row 6 -->
             <tr>
-              <td>unObjet</td>
+              <td>unObjet.nom</td>
               <td>
-                <span class="badge badge-accent">{{ unObjet }}</span>
+                <span class="badge badge-accent">{{ unObjet.nom }}</span>
               </td>
             </tr>
             <!-- row 7 -->
+            <tr>
+              <td>unObjet['nom']</td>
+              <td>
+                <span class="badge badge-accent">{{ unObjet["nom"] }}</span>
+              </td>
+            </tr>
+            <!-- row 8 -->
+            <tr>
+              <td>unObjet.age</td>
+              <td>
+                <span class="badge badge-accent">{{ unObjet.age }}</span>
+              </td>
+            </tr>
+            <!-- row 9 -->
             <tr>
               <td>fonctionTest()</td>
               <td>
@@ -65,7 +79,7 @@
                 }}</span>
               </td>
             </tr>
-            <!-- row 8-->
+            <!-- row 10 -->
             <tr>
               <td>Un ternaire</td>
               <td>
@@ -74,7 +88,7 @@
                 }}</span>
               </td>
             </tr>
-            <!-- row 9-->
+            <!-- row 11 -->
 
             <tr>
               <td>On affiche du HTML ?</td>
