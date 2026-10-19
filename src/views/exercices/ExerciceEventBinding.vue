@@ -2,10 +2,7 @@
   <div class="card bg-base-100 shadow-sm max-w-4xl mx-auto my-8">
     <div class="card-body">
       <div class="card-actions justify-center mt-4">
-        <button
-          v-on:click.right="increment"
-          class="btn btn-circle btn-success mb-3"
-        >
+        <button v-on:click="increment" class="btn btn-circle btn-success mb-3">
           +
         </button>
         <button v-on:click="decrement" class="btn btn-circle btn-error mb-3">
