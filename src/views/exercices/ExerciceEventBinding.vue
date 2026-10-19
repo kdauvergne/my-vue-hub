@@ -21,7 +21,6 @@
           ?
         </button>
       </div>
-      git
     </div>
   </div>
 </template>
