@@ -33,6 +33,20 @@
           </li>
         </ul>
       </div>
+      <div class="dropdown dropdown-end">
+        <div tabindex="0" role="button" class="btn btn-ghost">TP</div>
+        <ul
+          tabindex="-1"
+          class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm"
+          @click="closeMenu"
+        >
+          <li v-for="tp in tps" :key="tp.path">
+            <RouterLink :to="tp.path">
+              {{ tp.meta.title }}
+            </RouterLink>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </template>
@@ -47,6 +61,10 @@ const lessons = useRouter()
 const exercices = useRouter()
   .getRoutes()
   .filter((route) => route.path.startsWith("/exercices/"));
+
+const tps = useRouter()
+  .getRoutes()
+  .filter((route) => route.path.startsWith("/tp/"));
 
 // Le dropdown daisyUI reste ouvert tant qu'il a le focus : on le retire après un clic sur un lien
 const closeMenu = () => document.activeElement?.blur();
