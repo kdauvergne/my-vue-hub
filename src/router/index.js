@@ -16,12 +16,37 @@ const router = createRouter({
 
     // Routes CONTACT et ABOUT en lazy loading, importées uniquement quand on navigue vers ces routes
     {
-      path: "/contact",
-      component: () => import("../views/Contact.vue"),
+      path: "/lessons",
+      component: () => import("../views/Lessons.vue"),
     },
     {
       path: "/about",
       component: () => import("../views/About.vue"),
+    },
+    {
+      path: "/lessons/introduction",
+      component: () => import("../views/lessons/lesson-introduction.vue"),
+      meta: { title: "Introduction" },
+    },
+    {
+      path: "/lessons/setup",
+      component: () => import("../views/lessons/lesson-setup.vue"),
+      meta: { title: "Setup Vue" },
+    },
+    {
+      path: "/lessons/text-interpolation",
+      component: () => import("../views/lessons/lesson-text-interpolation.vue"),
+      meta: { title: "Text interpolation" },
+    },
+    {
+      path: "/lessons/attribute-binding",
+      component: () => import("../views/lessons/lesson-attribute-binding.vue"),
+      meta: { title: "Attribute binding" },
+    },
+    {
+      path: "/lessons/event-binding",
+      component: () => import("../views/lessons/lesson-event-binding.vue"),
+      meta: { title: "Event binding" },
     },
   ],
 });
