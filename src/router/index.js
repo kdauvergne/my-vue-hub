@@ -58,6 +58,11 @@ const router = createRouter({
       meta: { title: "Event binding" },
     },
     {
+      path: "/lessons/two-way-binding",
+      component: () => import("../views/lessons/lesson-two-way-binding.vue"),
+      meta: { title: "Two way binding" },
+    },
+    {
       path: "/exercices/exercice-text-interpolation",
       component: () =>
         import("../views/exercices/ExerciceTextInterpolation.vue"),
