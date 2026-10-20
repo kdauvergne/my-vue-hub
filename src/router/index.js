@@ -106,6 +106,11 @@ const router = createRouter({
       meta: { title: "TP Databinding" },
     },
     {
+      path: "/tp/tp-dynamic-styling",
+      component: () => import("../views/tp/TP-dynamic-styling.vue"),
+      meta: { title: "TP Dynamic Styling" },
+    },
+    {
       path: "/privacy-policy",
       component: () => import("../views/Privacy.vue"),
       meta: { title: "Politique de confidentialité" },
