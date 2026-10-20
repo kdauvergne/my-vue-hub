@@ -70,6 +70,16 @@ const router = createRouter({
       component: () => import("../views/tp/TP-databinding.vue"),
       meta: { title: "TP Databinding" },
     },
+    {
+      path: "/privacy-policy",
+      component: () => import("../views/Privacy.vue"),
+      meta: { title: "Politique de confidentialité" },
+    },
+    {
+      path: "/mentions-legales",
+      component: () => import("../views/Mentions.vue"),
+      meta: { title: "Mentions légales" },
+    },
   ],
 });
 export default router;
