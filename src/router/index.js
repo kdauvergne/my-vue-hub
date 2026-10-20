@@ -63,6 +63,22 @@ const router = createRouter({
       meta: { title: "Two way binding" },
     },
     {
+      path: "/lessons/conditional-rendering",
+      component: () =>
+        import("../views/lessons/lesson-conditional-rendering.vue"),
+      meta: { title: "Conditional rendering" },
+    },
+    {
+      path: "/lessons/dynamic-styling",
+      component: () => import("../views/lessons/lesson-dynamic-styling.vue"),
+      meta: { title: "Dynamic styling" },
+    },
+    {
+      path: "/lessons/list-rendering",
+      component: () => import("../views/lessons/lesson-list-rendering.vue"),
+      meta: { title: "List rendering" },
+    },
+    {
       path: "/exercices/exercice-text-interpolation",
       component: () =>
         import("../views/exercices/ExerciceTextInterpolation.vue"),
