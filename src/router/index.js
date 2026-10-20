@@ -101,6 +101,11 @@ const router = createRouter({
       meta: { title: "Exercice 4" },
     },
     {
+      path: "/exercices/exercice-v-if",
+      component: () => import("../views/exercices/ExerciceV-if.vue"),
+      meta: { title: "Exercice 5" },
+    },
+    {
       path: "/tp/tp-databinding",
       component: () => import("../views/tp/TP-databinding.vue"),
       meta: { title: "TP Databinding" },
