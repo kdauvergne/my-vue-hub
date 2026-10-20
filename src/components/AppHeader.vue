@@ -1,5 +1,5 @@
 <template>
-  <div class="navbar bg-base-100 shadow-sm">
+  <div class="navbar bg-base-100 shadow-sm relative z-10">
     <div class="flex-1">
       <RouterLink to="/home" class="btn btn-ghost text-xl">MyVueHub</RouterLink>
     </div>
