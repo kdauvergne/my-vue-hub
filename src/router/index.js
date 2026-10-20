@@ -8,6 +8,11 @@ import Home from "../views/Home.vue";
 const router = createRouter({
   history: createWebHistory(),
   routes: [
+    {
+      path: "/",
+      redirect: "/home",
+    },
+
     // Route HOME pas en lazy loading, importée directement au début du fichier
     {
       path: "/home",
