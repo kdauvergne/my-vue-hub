@@ -16,6 +16,7 @@
         :class="{
           maClasseHello: inputText.toLowerCase() === 'hello',
           maClasseWorld: inputText.toLowerCase() === 'world',
+          hide: showFirstH2 ? false : true,
         }"
       >
         Hello World (couleur dynamique)
@@ -23,7 +24,7 @@
       <input
         type="text"
         v-model="inputText2"
-        placeholder="Hello World !"
+        placeholder="Tapez une couleur CSS (ex: red, blue, #ff0000)"
         class="input input-bordered w-full mb-4 text"
       />
       <h2
@@ -34,6 +35,13 @@
       >
         Hello World (class dynamique)
       </h2>
+
+      <button
+        class="btn btn-primary mt-4 self-s"
+        @click="showFirstH2 = !showFirstH2"
+      >
+        {{ showFirstH2 ? "Cacher" : "Afficher" }} le premier H2
+      </button>
     </div>
   </div>
 </template>
@@ -44,6 +52,8 @@ import { ref } from "vue";
 const inputText = ref("");
 
 const inputText2 = ref("");
+
+const showFirstH2 = ref(true);
 </script>
 <style scoped>
 .maClasseHello {
@@ -54,5 +64,9 @@ const inputText2 = ref("");
 .maClasseWorld {
   background-color: lightgreen;
   color: fuchsia;
+}
+
+.hide {
+  display: none;
 }
 </style>
