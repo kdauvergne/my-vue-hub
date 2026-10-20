@@ -80,6 +80,13 @@ const router = createRouter({
       component: () => import("../views/Mentions.vue"),
       meta: { title: "Mentions légales" },
     },
+    // Route spéciale pour gérer les pages non trouvées
+    // Si la route sur laquelle on est ne Match pas nos autre routes (path)
+    // On redirige vers une page avec un template style page 404
+    {
+      path: "/:pathMatch(.*)*",
+      component: () => import("../views/not-found.vue"),
+    },
   ],
 });
 export default router;
