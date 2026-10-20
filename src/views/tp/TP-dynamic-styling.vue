@@ -14,8 +14,22 @@
       <h2
         class="text-xl font-bold mb-2"
         :class="{
-          maClasseHello: inputText === 'hello',
-          maClasseWorld: inputText === 'world',
+          maClasseHello: inputText.toLowerCase() === 'hello',
+          maClasseWorld: inputText.toLowerCase() === 'world',
+        }"
+      >
+        Hello World (couleur dynamique)
+      </h2>
+      <input
+        type="text"
+        v-model="inputText2"
+        placeholder="Hello World !"
+        class="input input-bordered w-full mb-4 text"
+      />
+      <h2
+        class="text-xl font-bold mb-2 text-white"
+        :style="{
+          backgroundColor: inputText2 === '' ? 'red' : inputText2.toLowerCase(),
         }"
       >
         Hello World (class dynamique)
@@ -28,6 +42,8 @@
 import { ref } from "vue";
 
 const inputText = ref("");
+
+const inputText2 = ref("");
 </script>
 <style scoped>
 .maClasseHello {
