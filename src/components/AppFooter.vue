@@ -4,7 +4,7 @@
   >
     <nav class="grid grid-flow-col gap-4">
       <a class="link link-hover">About us</a>
-      <a class="link link-hover">Contact</a>
+      <a href="/contact" class="link link-hover">Contact</a>
       <a href="/privacy-policy" class="link link-hover"
         >Politique de confidentialité</a
       >

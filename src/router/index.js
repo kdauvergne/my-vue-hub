@@ -24,6 +24,10 @@ const router = createRouter({
       component: () => import("../views/About.vue"),
     },
     {
+      path: "/contact",
+      component: () => import("../views/Contact.vue"),
+    },
+    {
       path: "/lessons/introduction",
       component: () => import("../views/lessons/lesson-introduction.vue"),
       meta: { title: "Introduction" },
