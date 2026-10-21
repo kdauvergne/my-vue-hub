@@ -1,14 +1,12 @@
 const exercicesRoutes = [
   {
     path: "/exercices/exercice-text-interpolation",
-    component: () =>
-      import("../views/exercices/ExerciceTextInterpolation.vue"),
+    component: () => import("../views/exercices/ExerciceTextInterpolation.vue"),
     meta: { title: "Exercice 1" },
   },
   {
     path: "/exercices/exercice-attribute-binding",
-    component: () =>
-      import("../views/exercices/ExerciceAttributeBinding.vue"),
+    component: () => import("../views/exercices/ExerciceAttributeBinding.vue"),
     meta: { title: "Exercice 2" },
   },
   {
@@ -30,6 +28,11 @@ const exercicesRoutes = [
     path: "/exercices/exercice-v-for",
     component: () => import("../views/exercices/ExerciceV-for.vue"),
     meta: { title: "Exercice 6" },
+  },
+  {
+    path: "/exercices/exercice-crash-test-computed",
+    component: () => import("../views/exercices/ExerciceCrashTestComputed.vue"),
+    meta: { title: "Exercice 7" },
   },
 ];
 
