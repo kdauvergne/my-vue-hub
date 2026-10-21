@@ -1,5 +1,5 @@
 <template>
-  <div class="card bg-base-100 shadow-sm max-w-4xl mx-auto">
+  <div class="card bg-base-100 shadow-sm max-w-4xl mx-auto my-8">
     <div class="card-body">
       <h2 class="card-title">TP Réactivité : le Numéro Gagnant</h2>
 
@@ -19,21 +19,15 @@
           </h3>
           <h3
             v-if="message"
-            class="text-center text-lg font-semibold uppercase tracking-wide text-base-content/70"
+            class="text-center text-lg font-semibold uppercase tracking-wide text-fuchsia-600"
           >
             {{ message }}
           </h3>
           <div class="card-body items-center flex-row mx-auto">
-            <button
-              class="btn btn-active mx-auto bg-teal-700"
-              @click="leNombre++"
-            >
+            <button class="btn btn-success mx-auto" @click="augmenter(1)">
               +1
             </button>
-            <button
-              class="btn btn-active mx-auto bg-pink-400"
-              @click="leNombre += 5"
-            >
+            <button class="btn btn-error mx-auto" @click="augmenter(5)">
               +5
             </button>
           </div>
@@ -49,6 +43,10 @@ import { ref, watch, computed } from "vue";
 const leNombre = ref(0);
 const message = ref("");
 
+function augmenter(n) {
+  leNombre.value += n;
+}
+
 const indice = computed(() => {
   if (leNombre.value < 7) return "ESSAIE ENCORE !";
   if (leNombre.value === 7) return "7... BINGO !";
@@ -57,9 +55,10 @@ const indice = computed(() => {
 
 watch(leNombre, (newNombre) => {
   if (newNombre > 30) {
-    message.value = "Le nombre dépasse 30 !";
+    message.value = "Beaucoup trop !";
     setTimeout(() => {
       leNombre.value = 0;
+      message.value = "";
     }, 7000);
   }
 });
