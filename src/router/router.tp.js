@@ -9,6 +9,11 @@ const tpRoutes = [
     component: () => import("../views/tp/TP-dynamic-styling.vue"),
     meta: { title: "TP Dynamic Styling" },
   },
+  {
+    path: "/tp/tp-reactivite",
+    component: () => import("../views/tp/TP-reactivite.vue"),
+    meta: { title: "TP Réactivité" },
+  },
 ];
 
 export default tpRoutes;
