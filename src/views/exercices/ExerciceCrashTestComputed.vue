@@ -26,18 +26,20 @@
       </div>
 
       <p class="text-xl text-center mt-4">
-        fonction afficherUsername() : {{ username }} {{ afficherUsername() }}
+        fonction afficherUsername() : {{ username }} {{ usernameComputed }}
       </p>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, computed } from "vue";
 
 const counter = ref(0);
 
 const username = ref("");
+
+// Sans computed la fonction sera appelée à chaque rendu du composant.
 
 function afficherUsername() {
   console.log("La fonction qui gère le username est appelée");
@@ -47,6 +49,12 @@ function afficherUsername() {
     return "Offline";
   }
 }
+
+// Avec computed la fonction ne sera appelée que si la valeur de username change.
+const usernameComputed = computed(() => {
+  console.log("La fonction qui gère le username est appelée");
+  return username.value === "" ? "Online" : "Offline";
+});
 
 function increment() {
   counter.value += 1000;
