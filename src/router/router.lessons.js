@@ -67,6 +67,11 @@ const lessonsRoutes = [
     component: () => import("../views/lessons/lesson-watchers.vue"),
     meta: { title: "Watchers" },
   },
+  {
+    path: "/lessons/lifecycle",
+    component: () => import("../views/lessons/lesson-lifecycle.vue"),
+    meta: { title: "Cycle de vie d'un composant" },
+  },
 ];
 
 export default lessonsRoutes;
