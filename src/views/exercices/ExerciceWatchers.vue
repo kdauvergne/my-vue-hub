@@ -6,7 +6,7 @@
         <h2 class="text-3xl font-bold">Compteur avec Watchers</h2>
       </div>
 
-      <div class="mt-6">
+      <div class="mt-6 flex items-center justify-center">
         <button class="btn btn-primary" @click="leNombre++">+</button>
         <span class="mx-4 text-2xl font-bold"
           >Valeur actuelle : {{ leNombre }}</span
@@ -21,9 +21,9 @@ import { ref, watch } from "vue";
 
 const leNombre = ref(0);
 
-watch(leNombre, (limitVal) => {
+watch(leNombre, (newValue) => {
   console.log(`Ça surveille`);
-  if (limitVal === 7) {
+  if (newValue === 7) {
     console.log("Limite atteinte !");
     leNombre.value = 0;
   }
