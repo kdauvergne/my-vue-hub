@@ -62,6 +62,11 @@ const lessonsRoutes = [
     component: () => import("../views/lessons/lesson-computed-properties.vue"),
     meta: { title: "Computed properties" },
   },
+  {
+    path: "/lessons/watchers",
+    component: () => import("../views/lessons/lesson-watchers.vue"),
+    meta: { title: "Watchers" },
+  },
 ];
 
 export default lessonsRoutes;
