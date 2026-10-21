@@ -29,9 +29,8 @@
           :key="index"
           class="mb-1 list-none"
         >
-          <button class="btn w-fit" @click="movieList.pop(index)">
-            {{ movie }}
-            <div class="badge badge-xs">🗑️</div>
+          <button class="btn w-fit" @click="movieList.splice(index, 1)">
+            {{ index + 1 }} - {{ movie }} - 🗑️
           </button>
         </li>
       </ul>
@@ -60,5 +59,6 @@ function addMovie(movie) {
     return;
   }
   movieList.value.push(movie);
+  movieName.value = "";
 }
 </script>
