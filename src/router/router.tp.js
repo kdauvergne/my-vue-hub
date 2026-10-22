@@ -14,6 +14,11 @@ const tpRoutes = [
     component: () => import("../views/tp/TP-reactivite.vue"),
     meta: { title: "TP Réactivité" },
   },
+  {
+    path: "/tp/tp-list-conditional-rendering",
+    component: () => import("../views/tp/TP-list-conditional-rendering.vue"),
+    meta: { title: "TP List and conditional rendering" },
+  },
 ];
 
 export default tpRoutes;
