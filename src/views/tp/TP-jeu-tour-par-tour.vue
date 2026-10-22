@@ -40,13 +40,22 @@
 
         <div class="flex flex-row flex-wrap gap-2 justify-center">
           <button class="btn btn-primary" @click="attackDemon">Attaquer</button>
-          <button class="btn btn-secondary" :class="isActif">
+          <button
+            class="btn btn-secondary"
+            :class="isActif"
+            @click="attackSpecial"
+          >
             Attaque spéciale
           </button>
-          <button class="btn btn-success">Soigner</button>
-          <button class="btn btn-error">Abandonner</button>
+          <button class="btn btn-success" @click="heal">Soigner</button>
+          <button class="btn btn-error" @click="abandon">Abandonner</button>
         </div>
-        <p v-if="resultat">{{ resultat }}</p>
+        <p
+          v-if="resultat"
+          class="alert alert-info alert-soft text-cyan-900 justify-center text-lg font-semibold"
+        >
+          {{ resultat }}
+        </p>
       </div>
     </div>
   </div>
@@ -103,6 +112,43 @@ function attackSlayer() {
   console.log("Attaque du Démon contre la Slayer!");
   // lancer une attaque contre la slayer
   // infliger des dégats à la vie de la slayer (le démon tape + fort)
-  slayerPV.value -= 15;
+
+  // enlève 15 PV sans aller en dessous de 0
+  slayerPV.value = Math.max(slayerPV.value - 15, 0);
+}
+
+function attackSpecial() {
+  console.log("Attaque spéciale de la Slayer !");
+
+  if (slayerPV.value <= 0 || demonPV.value <= 0) {
+    console.log("Partie finie");
+    return;
+  }
+
+  // enlève 10 PV sans aller en dessous de 0
+  demonPV.value = Math.max(demonPV.value - 10, 0);
+
+  if (demonPV.value > 0) {
+    attackSlayer();
+  }
+  currentround.value++;
+  console.log(currentround.value);
+}
+
+function heal() {
+  if (slayerPV.value <= 0 || demonPV.value <= 0) return;
+
+  // ajoute 30 PV sans dépasser 100
+  slayerPV.value = Math.min(slayerPV.value + 30, 100);
+
+  if (demonPV.value > 0) {
+    attackSlayer();
+  }
+  currentround.value++;
+}
+
+function abandon() {
+  if (slayerPV.value <= 0 || demonPV.value <= 0) return;
+  slayerPV.value = 0;
 }
 </script>
