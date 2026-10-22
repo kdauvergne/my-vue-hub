@@ -2,6 +2,15 @@
   <div class="card bg-base-200">
     <div class="card-body">
       <h3 class="card-title">Les films du Studio Ghibli :</h3>
+      <ul class="flex flex-wrap gap-2">
+        <li
+          v-for="(film, index) in films"
+          :key="index"
+          class="badge badge-primary"
+        >
+          {{ film }}
+        </li>
+      </ul>
     </div>
   </div>
 </template>
@@ -10,11 +19,15 @@
 import { ref, onMounted } from "vue";
 
 const films = ref([]);
-const loading = ref(false);
 
 onMounted(async () => {
   try {
     const response = await fetch("https://ghibliapi.vercel.app/films");
+
+    if (!response.ok) {
+      throw new Error(`Erreur HTTP ${response.status}`);
+    }
+
     const data = await response.json();
     console.log(data);
     console.log(data[0]);
@@ -28,10 +41,6 @@ onMounted(async () => {
     console.log(films.value);
   } catch (e) {
     console.error(e);
-  } finally {
-    loading.value = false;
   }
 });
 </script>
-
-<style lang="scss" scoped></style>
