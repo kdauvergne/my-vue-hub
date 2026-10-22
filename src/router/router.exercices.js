@@ -39,6 +39,11 @@ const exercicesRoutes = [
     component: () => import("../views/exercices/ExerciceWatchers.vue"),
     meta: { title: "Watchers" },
   },
+  {
+    path: "/exercices/exercice-fetch-api",
+    component: () => import("../views/exercices/ExerciceFetchApi.vue"),
+    meta: { title: "Fetch Api (onMounted)" },
+  },
 ];
 
 export default exercicesRoutes;
