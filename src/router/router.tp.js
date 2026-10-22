@@ -19,6 +19,11 @@ const tpRoutes = [
     component: () => import("../views/tp/TP-list-conditional-rendering.vue"),
     meta: { title: "TP List and conditional rendering" },
   },
+  {
+    path: "/tp/tp-tour-par-tour",
+    component: () => import("../views/tp/TP-jeu-tour-par-tour.vue"),
+    meta: { title: "TP Jeu tour par tour" },
+  },
 ];
 
 export default tpRoutes;
