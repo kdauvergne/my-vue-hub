@@ -56,6 +56,17 @@
         >
           {{ resultat }}
         </p>
+
+        <div class="card bg-base-200">
+          <div class="card-body">
+            <h3 class="card-title">Battle log</h3>
+            <ul>
+              <li v-for="(log, index) in battlelog" :key="index">
+                {{ log }}
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -66,6 +77,10 @@ import { computed, ref } from "vue";
 
 const slayerPV = ref(100);
 const demonPV = ref(100);
+const degatsSlayer = ref(0);
+const degatsDemon = ref(0);
+
+const battlelog = ref([]);
 
 const currentround = ref(0);
 
@@ -89,16 +104,19 @@ const isActif = computed(() =>
 
 function attackDemon() {
   // lancer une attaque contre le démon
-  console.log("Attaque de la Slayer contre le Démon !");
 
   if (slayerPV.value <= 0 || demonPV.value <= 0) {
     console.log("Partie finie");
     return;
   }
 
-  // infliger des dégâts à la vie du démon
-  demonPV.value -= 10;
+  console.log("Attaque de la Slayer contre le Démon !");
 
+  degatsDemon.value = 10;
+  // infliger des dégâts à la vie du démon
+  demonPV.value = Math.max(demonPV.value - degatsDemon.value, 0);
+
+  battlelog.value.push("Attaque de la Slayer ! Le démon perd 10 PV!");
   // appeler la fonction attackSlayer pour le tour par tour
   if (demonPV.value > 0) {
     attackSlayer();
@@ -115,6 +133,8 @@ function attackSlayer() {
 
   // enlève 15 PV sans aller en dessous de 0
   slayerPV.value = Math.max(slayerPV.value - 15, 0);
+
+  battlelog.value.push("Le démon contre-attaque ! La Slayer perd 15 PV !");
 }
 
 function attackSpecial() {
@@ -125,13 +145,15 @@ function attackSpecial() {
     return;
   }
 
-  // enlève 10 PV sans aller en dessous de 0
-  demonPV.value = Math.max(demonPV.value - 10, 0);
+  degatsSlayer.value = 20;
+  // enlève 20 PV sans aller en dessous de 0
+  demonPV.value = Math.max(demonPV.value - degatsSlayer.value, 0);
 
   if (demonPV.value > 0) {
     attackSlayer();
   }
   currentround.value++;
+  battlelog.value.push("Attaque spéciale ! Le démon perd 20 PV !");
   console.log(currentround.value);
 }
 
@@ -140,6 +162,8 @@ function heal() {
 
   // ajoute 30 PV sans dépasser 100
   slayerPV.value = Math.min(slayerPV.value + 30, 100);
+
+  battlelog.value.push("La Slayer s'est soigné +30 PV !");
 
   if (demonPV.value > 0) {
     attackSlayer();
