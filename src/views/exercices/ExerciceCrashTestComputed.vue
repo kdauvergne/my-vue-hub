@@ -1,33 +1,80 @@
 <template>
-  <div class="card bg-base-100 shadow-sm max-w-4xl mx-auto my-8">
-    <div class="card-body">
-      <h2 class="card-title text-2xl font-bold mb-4">
-        Exercice Dynamic Styling (class)
-      </h2>
-      <div class="card-actions justify-center mt-4">
-        <button v-on:click="increment" class="btn btn-circle btn-success mb-3">
-          +
-        </button>
-        <button v-on:click="decrement" class="btn btn-circle btn-error mb-3">
-          -
-        </button>
-      </div>
-      <p class="text-xl text-center">Compteur : {{ counter }}</p>
+  <div class="max-w-4xl mx-auto flex flex-col gap-4">
+    <div class="card bg-base-100 shadow-sm">
+      <div class="card-body">
+        <h2 class="card-title text-2xl justify-center">
+          Exercice Dynamic Styling (class)
+        </h2>
 
-      <div class="card-actions justify-center mt-4 flex-col items-center">
-        <p class="text-xl text-center">Clic gauche ou clic droit ?</p>
-        <button
-          v-on:click.right.prevent="decrement"
-          v-on:click.left="increment"
-          class="btn btn-circle btn-active mb-3"
+        <div
+          tabindex="0"
+          class="collapse collapse-arrow bg-base-100 border-base-300 border"
         >
-          ?
-        </button>
-      </div>
+          <div
+            class="collapse-title font-semibold after:start-5 after:end-auto pe-4 ps-12"
+          >
+            Consignes de l'exercice
+          </div>
+          <div class="collapse-content text-sm">
+            <p>
+              Comparer une fonction classique et une propriété computed pour
+              comprendre quand chacune est réexécutée.
+            </p>
 
-      <p class="text-xl text-center mt-4">
-        fonction afficherUsername() : {{ username }} {{ usernameComputed }}
-      </p>
+            <p>Reprendre le compteur de l'exercice Event Binding :</p>
+            <p>- un bouton + qui ajoute 1000, un bouton - qui retire 77 ;</p>
+            <p>
+              - un bouton qui augmente au clic gauche et réduit au clic droit.
+            </p>
+
+            <p>Ajouter une variable réactive username, puis :</p>
+            <p>
+              - une fonction afficherUsername qui retourne « Online » si
+              username est vide, « Offline » sinon ;
+            </p>
+            <p>- une computed qui fait la même chose ;</p>
+            <p>- un console.log dans chacune des deux.</p>
+
+            <p>
+              Cliquer sur le compteur et observer la console : la fonction est
+              rappelée à chaque rendu, la computed seulement quand username
+              change.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card bg-base-100 shadow-sm">
+      <div class="card-body">
+        <div class="card-actions justify-center mt-4">
+          <button
+            v-on:click="increment"
+            class="btn btn-circle btn-success mb-3"
+          >
+            +
+          </button>
+          <button v-on:click="decrement" class="btn btn-circle btn-error mb-3">
+            -
+          </button>
+        </div>
+        <p class="text-xl text-center">Compteur : {{ counter }}</p>
+
+        <div class="card-actions justify-center mt-4 flex-col items-center">
+          <p class="text-xl text-center">Clic gauche ou clic droit ?</p>
+          <button
+            v-on:click.right.prevent="decrement"
+            v-on:click.left="increment"
+            class="btn btn-circle btn-active mb-3"
+          >
+            ?
+          </button>
+        </div>
+
+        <p class="text-xl text-center mt-4">
+          fonction afficherUsername() : {{ username }} {{ usernameComputed }}
+        </p>
+      </div>
     </div>
   </div>
 </template>
