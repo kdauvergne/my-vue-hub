@@ -1,16 +1,68 @@
 <template>
-  <div class="card bg-base-100 shadow-sm max-w-4xl mx-auto my-8">
-    <div class="card-body">
-      <span class="badge badge-xs badge-warning">Exercice</span>
-      <div class="flex justify-between">
-        <h2 class="text-3xl font-bold">Compteur avec Watchers</h2>
-      </div>
+  <div class="max-w-4xl mx-auto flex flex-col gap-4">
+    <div class="card bg-base-100 shadow-sm">
+      <div class="card-body">
+        <h2 class="card-title text-2xl justify-center">
+          Compteur avec Watchers
+        </h2>
 
-      <div class="mt-6 flex items-center justify-center">
-        <button class="btn btn-primary" @click="leNombre++">+</button>
-        <span class="mx-4 text-2xl font-bold"
-          >Valeur actuelle : {{ leNombre }}</span
+        <div
+          tabindex="0"
+          class="collapse collapse-arrow bg-base-100 border-base-300 border"
         >
+          <div
+            class="collapse-title font-semibold after:start-5 after:end-auto pe-4 ps-12"
+          >
+            Consignes de l'exercice
+          </div>
+          <div class="collapse-content text-sm">
+            <p>
+              Objectif : comprendre comment surveiller les modifications d'un
+              état réactif et exécuter du code à chaque changement grâce à la
+              fonction watch.
+            </p>
+
+            <p>Créer l'état réactif :</p>
+            <p>
+              - dans le bloc &lt;script setup&gt;, créer une variable réactive
+              leNombre initialisée à 0.
+            </p>
+
+            <p>Mettre en place l'interface :</p>
+            <p>- afficher la valeur actuelle de leNombre dans le template ;</p>
+            <p>- ajouter un bouton + qui incrémente leNombre de 1 à chaque clic.</p>
+
+            <p>Ajouter le watcher (watch) :</p>
+            <p>- importer la fonction watch depuis 'vue' ;</p>
+            <p>- créer un watcher qui observe les changements de leNombre ;</p>
+            <p>
+              - à chaque modification de la valeur, afficher un message de suivi
+              dans la console (ex : "Ça surveille").
+            </p>
+
+            <p>
+              Implémenter la logique de réinitialisation : dans la fonction de
+              rappel du watcher, vérifier si la nouvelle valeur atteint 7. Si
+              c'est le cas :
+            </p>
+            <p>
+              - afficher un message d'avertissement dans la console (ex :
+              "Limite atteinte !") ;
+            </p>
+            <p>- réinitialiser leNombre à 0.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card bg-base-100 shadow-sm">
+      <div class="card-body">
+        <div class="mt-6 flex items-center justify-center">
+          <button class="btn btn-primary" @click="leNombre++">+</button>
+          <span class="mx-4 text-2xl font-bold"
+            >Valeur actuelle : {{ leNombre }}</span
+          >
+        </div>
       </div>
     </div>
   </div>
