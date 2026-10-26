@@ -23,12 +23,14 @@
             <p>- un bouton « Masquer liste ».</p>
 
             <p>Fonctionnement :</p>
-            <p>- le bouton Ajouter ajoute le texte de l'input dans la liste ;</p>
+            <p>
+              - le bouton Ajouter ajoute le texte de l'input dans la liste ;
+            </p>
             <p>- le bouton « Masquer liste » affiche ou masque la liste ;</p>
             <p>- cliquer sur un élément de la liste le supprime ;</p>
             <p>
-              - le texte du bouton passe de « Masquer liste » à « Afficher
-              liste » selon que la liste est masquée ou non.
+              - le texte du bouton passe de « Masquer liste » à « Afficher liste
+              » selon que la liste est masquée ou non.
             </p>
           </div>
         </div>
@@ -47,10 +49,7 @@
             placeholder="Article à ajouter"
             class="input w-full"
           />
-          <button
-            class="btn btn-primary mt-2"
-            @click="addList(article.trim())"
-          >
+          <button class="btn btn-primary mt-2" @click="addList(article.trim())">
             Ajouter à la liste de courses
           </button>
           <p v-if="isDoublon">Cet article est déjà dans votre liste</p>

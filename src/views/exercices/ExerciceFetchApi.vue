@@ -59,9 +59,25 @@
         </div>
       </div>
     </div>
-    <details>
+    <div>
+      <h3 class="font-semibold">
+        Exemple d'une fonction qui fetch avec la syntaxe then( ).then( ).catch(
+        )
+      </h3>
+      <pre
+        v-pre
+        class="bg-base-200 border border-base-300 rounded-box p-4 mt-2 text-sm font-mono overflow-x-auto"
+      ><code>const placeHolderApi = ()=>{
+    fetch("https://jsonplaceholder.typicode.com/posts/1")
+    .then(response => response.json())
+    .then(dataTransformed => {console.log("Post récupéré :", dataTransformed);})
+    .catch(error => {console.error("Erreur :", error);
+    });
+}</code></pre>
+    </div>
+    <details class="font-semibold m-4">
       <summary>Voir la correction</summary>
-      <CodeBlock :code="correction" />
+      <CodeBlock :code="correction" class="font-light text-xs mt-4" />
     </details>
   </div>
 </template>
