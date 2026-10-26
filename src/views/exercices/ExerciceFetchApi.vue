@@ -1,5 +1,5 @@
 <template>
-  <div class="max-w-4xl mx-auto flex flex-col gap-4">
+  <div class="max-w-4xl mx-auto flex flex-col gap-4 mt-4">
     <div class="card bg-base-100 shadow-sm">
       <div class="card-body">
         <h2 class="card-title text-2xl justify-center">
@@ -22,9 +22,13 @@
             </p>
 
             <div>
-              <h3 class="font-semibold mb-1">Pour chaque API, créer un composant qui :</h3>
+              <h3 class="font-semibold mb-1">
+                Pour chaque API, créer un composant qui :
+              </h3>
               <ul class="list-disc ps-6 space-y-1">
-                <li>lance la requête GET au montage (<code>onMounted</code>) ;</li>
+                <li>
+                  lance la requête GET au montage (<code>onMounted</code>) ;
+                </li>
                 <li>
                   vérifie <code>response.ok</code>, sinon lève une erreur ;
                 </li>
@@ -55,6 +59,10 @@
         </div>
       </div>
     </div>
+    <details>
+      <summary>Voir la correction</summary>
+      <CodeBlock :code="correction" />
+    </details>
   </div>
 </template>
 
@@ -62,6 +70,8 @@
 import ApiElden from "../../components/ApiElden.vue";
 import ApiGhibli from "../../components/ApiGhibli.vue";
 import ApiMeteo from "../../components/ApiMeteo.vue";
+import CodeBlock from "../../components/CodeBlock.vue";
+import correction from "../corrections/exercice-lifecycle-api.vue?raw";
 </script>
 
 <style lang="scss" scoped></style>
