@@ -31,7 +31,10 @@
               les boutons.
             </p>
 
-            <p>Indice dynamique (computed) : créer la propriété indice qui retourne :</p>
+            <p>
+              Indice dynamique (computed) : créer la propriété indice qui
+              retourne :
+            </p>
             <p>- "ESSAIE ENCORE !" si le nombre est inférieur à 7 ;</p>
             <p>- "7... BINGO !" si le nombre est égal à 7 ;</p>
             <p>- "Tu as dépassé le nombre !" si le nombre est supérieur à 7.</p>
@@ -41,9 +44,7 @@
               watch. Si la valeur dépasse 30 :
             </p>
             <p>- afficher un message dans msg ;</p>
-            <p>
-              - réinitialiser leNombre à 0 après 7 secondes (setTimeout).
-            </p>
+            <p>- réinitialiser leNombre à 0 après 7 secondes (setTimeout).</p>
           </div>
         </div>
       </div>
@@ -83,11 +84,17 @@
         </div>
       </div>
     </div>
+    <details class="font-semibold m-4">
+      <summary>Voir la correction</summary>
+      <CodeBlock :code="correction" class="font-light text-xs mt-4" />
+    </details>
   </div>
 </template>
 
 <script setup>
 import { ref, watch, computed } from "vue";
+import CodeBlock from "../../components/CodeBlock.vue";
+import correction from "../corrections/correction-tp-reactivite.vue?raw";
 
 const leNombre = ref(0);
 const message = ref("");
