@@ -24,6 +24,11 @@ const tpRoutes = [
     component: () => import("../views/tp/TP-jeu-tour-par-tour.vue"),
     meta: { title: "TP Jeu tour par tour" },
   },
+  {
+    path: "/tp/router-props",
+    component: () => import("../views/Users.vue"),
+    meta: { title: "TP Router et Props" },
+  },
 ];
 
 export default tpRoutes;

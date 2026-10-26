@@ -7,6 +7,7 @@ import Home from "../views/Home.vue";
 import lessonsRoutes from "./router.lessons";
 import exercicesRoutes from "./router.exercices";
 import tpRoutes from "./router.tp";
+import DetailPage from "../components/DetailPage.vue";
 
 const router = createRouter({
   history: createWebHistory(),
@@ -36,6 +37,11 @@ const router = createRouter({
       component: () => import("../views/Mentions.vue"),
       meta: { title: "Mentions légales" },
     },
+    {
+      path: "/users",
+      component: () => import("../views/Users.vue"),
+      meta: { title: "Users" },
+    },
     // Route spéciale pour gérer les pages non trouvées
     // Si la route sur laquelle on est ne Match pas nos autre routes (path)
     // On redirige vers une page avec un template style page 404
@@ -43,6 +49,7 @@ const router = createRouter({
       path: "/:pathMatch(.*)*",
       component: () => import("../views/not-found.vue"),
     },
+    { path: "/details/:id/:name", component: DetailPage, props: true },
   ],
 });
 export default router;
