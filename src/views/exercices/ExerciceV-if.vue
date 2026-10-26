@@ -56,11 +56,18 @@
         </p>
       </div>
     </div>
+    <details class="font-semibold m-4">
+      <summary>Voir la correction</summary>
+      <CodeBlock :code="correction" class="font-light text-xs mt-4" />
+    </details>
   </div>
 </template>
 
 <script setup>
 import { ref } from "vue";
+import CodeBlock from "../../components/CodeBlock.vue";
+
+import correction from "../corrections/correction-exercice-conditional-rendering.vue?raw";
 
 const movieName = ref("");
 const movieList = ref([]);
