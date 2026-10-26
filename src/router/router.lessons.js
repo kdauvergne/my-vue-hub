@@ -72,6 +72,11 @@ const lessonsRoutes = [
     component: () => import("../views/lessons/lesson-lifecycle.vue"),
     meta: { title: "Cycle de vie d'un composant" },
   },
+  {
+    path: "/lessons/props",
+    component: () => import("../views/lessons/lesson-props.vue"),
+    meta: { title: "Les Props" },
+  },
 ];
 
 export default lessonsRoutes;
