@@ -65,8 +65,18 @@
           <ApiMeteo />
         </div>
         <!--  API Elden Ring  -->
-        <div class="flex flex-col gap-4">
-          <ApiElden />
+        <div class="card bg-base-200">
+          <div class="card-body">
+            <h2 class="card-title mb-4">Le cercle d'Elden :</h2>
+            <div class="flex flex-wrap gap-4 justify-center">
+              <ApiElden
+                v-for="(npc, index) in npcs"
+                :key="index"
+                v-bind:name="npc.name"
+                v-bind:image="npc.image"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -101,6 +111,8 @@ import CodeBlock from "../../components/CodeBlock.vue";
 import correction from "../corrections/exercice-lifecycle-api.vue?raw";
 import { ref, onMounted } from "vue";
 
+// Ghibli
+
 const films = ref([]);
 
 onMounted(async () => {
@@ -116,6 +128,29 @@ onMounted(async () => {
     data.forEach((film) => {
       films.value.push(film.title);
     });
+  } catch (e) {
+    console.error(e);
+  }
+});
+
+// Elden Ring
+
+const npcs = ref([]);
+
+onMounted(async () => {
+  try {
+    const response = await fetch("https://eldenring.fanapis.com/api/npcs");
+
+    if (!response.ok) {
+      throw new Error(`Erreur HTTP ${response.status}`);
+    }
+
+    const data = await response.json();
+    console.log(data);
+
+    npcs.value = data.data;
+
+    console.log(npcs.value);
   } catch (e) {
     console.error(e);
   }
