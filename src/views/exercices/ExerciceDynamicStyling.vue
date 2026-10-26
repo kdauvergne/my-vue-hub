@@ -88,11 +88,18 @@
         </div>
       </div>
     </div>
+
+    <details class="font-semibold m-4">
+      <summary>Voir la correction</summary>
+      <CodeBlock :code="correction" class="font-light text-xs mt-4" />
+    </details>
   </div>
 </template>
 
 <script setup>
 import { ref } from "vue";
+import CodeBlock from "../../components/CodeBlock.vue";
+import correction from "../corrections/correction-exercice-dynamic-styling.vue?raw";
 
 const selectCard1 = ref(false);
 const selectCard2 = ref(false);

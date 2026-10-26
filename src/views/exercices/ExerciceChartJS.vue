@@ -11,13 +11,14 @@
           class="collapse collapse-arrow bg-base-100 border-base-300 border"
         >
           <div
-            class="collapse-title font-semibold after:start-5 after:end-auto pe-4 ps-12"
+            class="collapse-title font-semibold after:inset-s-5 after:inset-e-auto pe-4 ps-12"
           >
             Consignes de l'exercice
           </div>
           <div class="collapse-content text-sm">
             <p>
-              Créer une page avec un composant qui intègre la librairie Chart.js.
+              Créer une page avec un composant qui intègre la librairie
+              Chart.js.
             </p>
             <p>
               Se renseigner sur les wrappers de librairies : plutôt que
