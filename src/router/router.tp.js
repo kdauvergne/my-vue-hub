@@ -29,6 +29,11 @@ const tpRoutes = [
     component: () => import("../views/Users.vue"),
     meta: { title: "TP Router et Props" },
   },
+  {
+    path: "/tp/TP-emits",
+    component: () => import("../views/exercices/ExerciceEmits.vue"),
+    meta: { title: "TP Emits" },
+  },
 ];
 
 export default tpRoutes;

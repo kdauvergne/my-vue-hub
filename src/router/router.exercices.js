@@ -49,11 +49,6 @@ const exercicesRoutes = [
     component: () => import("../views/exercices/ExerciceProps.vue"),
     meta: { title: "Exercice Props" },
   },
-  {
-    path: "/exercices/exercice-emits",
-    component: () => import("../views/exercices/ExerciceEmits.vue"),
-    meta: { title: "Exercice Emits" },
-  },
 ];
 
 export default exercicesRoutes;
