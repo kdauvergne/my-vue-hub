@@ -12,7 +12,10 @@
           >{{ premium ? "Premium" : "Standard" }}</span
         >
       </div>
-      <ul class="mt-6 flex flex-col gap-2 text-xs">
+      <ul
+        class="mt-6 flex flex-col gap-2 text-xs"
+        :style="{ display: afficher ? 'flex' : 'none' }"
+      >
         <li>
           <span class="badge badge-primary mr-2"
             ><svg
@@ -82,7 +85,9 @@
         >
           Update Premium
         </button>
-        <button class="btn btn-sm btn-info">Afficher détails</button>
+        <button class="btn btn-sm btn-info" @click="afficherDetails">
+          {{ afficher ? "Masquer" : "Afficher " }} détails
+        </button>
         <button class="btn btn-sm btn-error" @click="emit('delete-friend', id)">
           Supprimer
         </button>
@@ -92,7 +97,15 @@
 </template>
 
 <script lang="js" setup>
+import { ref } from "vue";
+
 const emit = defineEmits(["mon-event-premium-update", "delete-friend"]);
+
+const afficher = ref(false);
+
+function afficherDetails() {
+  afficher.value = !afficher.value;
+}
 
 const props = defineProps({
   id: { type: String, required: true },
