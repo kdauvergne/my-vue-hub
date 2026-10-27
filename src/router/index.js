@@ -28,6 +28,11 @@ const router = createRouter({
     ...tpRoutes,
 
     {
+      path: "/articles-manager",
+      component: () => import("../views/ArticlesManager.vue"),
+      meta: { title: "Articles Manager" },
+    },
+    {
       path: "/privacy-policy",
       component: () => import("../views/Privacy.vue"),
       meta: { title: "Politique de confidentialité" },
