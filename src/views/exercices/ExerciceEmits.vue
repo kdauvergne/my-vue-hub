@@ -6,8 +6,16 @@
       </div>
     </div>
     <div class="card bg-base-100 shadow-sm">
+      <div class="card-body">
+        Données du tableau lesAmis dans le parent Exercice Emit :
+        <div>
+          {{ lesAmis }}
+        </div>
+      </div>
+    </div>
+    <div class="card bg-base-100 shadow-sm">
       <div class="card-body pb-0">
-        <NewFriend />
+        <NewFriend @add-friend="addFriend" />
       </div>
       <div class="card-body grid grid-cols-1 md:grid-cols-2 gap-4">
         <OneFriendEmit
@@ -41,6 +49,15 @@ function deleteFriend(id) {
   lesAmis.value.splice(indexAmi, 1);
 }
 
+function addFriend(newFriend) {
+  lesAmis.value.push({
+    id: crypto.randomUUID(),
+    name: newFriend.name,
+    phone: newFriend.phone,
+    email: newFriend.email,
+    premium: false,
+  });
+}
 const lesAmis = ref([
   {
     id: "Philou",
