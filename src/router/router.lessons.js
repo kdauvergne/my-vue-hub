@@ -77,6 +77,16 @@ const lessonsRoutes = [
     component: () => import("../views/lessons/lesson-props.vue"),
     meta: { title: "Les Props" },
   },
+  {
+    path: "/lessons/router",
+    component: () => import("../views/lessons/lesson-router.vue"),
+    meta: { title: "Router" },
+  },
+  {
+    path: "/lessons/emit",
+    component: () => import("../views/lessons/lesson-emit.vue"),
+    meta: { title: "Emit" },
+  },
 ];
 
 export default lessonsRoutes;
