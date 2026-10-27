@@ -114,11 +114,17 @@ const props = defineProps({
 
 const propsToDataPremium = ref(props.premium);
 
+// const togglePremium = () => {
+//   if (propsToDataPremium.value === false) {
+//     propsToDataPremium.value = true;
+//   } else {
+//     propsToDataPremium.value = false;
+//   }
+// };
+
+// Corrigé (plus court)
+
 const togglePremium = () => {
-  if (propsToDataPremium.value === false) {
-    propsToDataPremium.value = true;
-  } else {
-    propsToDataPremium.value = false;
-  }
+  propsToDataPremium.value = !propsToDataPremium.value;
 };
 </script>
