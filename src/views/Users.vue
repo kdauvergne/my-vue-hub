@@ -21,10 +21,15 @@ const users = ref([
       >
         <div class="card-body flex-row items-center justify-between">
           <h2 class="card-title">{{ user.name }}</h2>
-          <RouterLink
+          <!-- <RouterLink
             :to="`/details/${user.id}/${user.name.replace(' ', '-')}`"
             class="btn btn-accent"
             >Voir les détails</RouterLink
+          > -->
+          <router-link
+            :to="{ name: 'Details', params: { id: user.id, name: user.name } }"
+            class="btn btn-accent"
+            >Voir les détails</router-link
           >
         </div>
       </div>

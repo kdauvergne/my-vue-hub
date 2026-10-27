@@ -49,7 +49,12 @@ const router = createRouter({
       path: "/:pathMatch(.*)*",
       component: () => import("../views/not-found.vue"),
     },
-    { path: "/details/:id/:name", component: DetailPage, props: true },
+    {
+      path: "/details/:id/:name",
+      name: "Details",
+      component: DetailPage,
+      props: true,
+    },
   ],
 });
 export default router;
