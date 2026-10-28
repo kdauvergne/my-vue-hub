@@ -75,7 +75,6 @@ const addArticle = async () => {
     };
     await ArticleDataService.create(article);
     // Utilisation d'un composant de notification DaisyUI (imaginons) ou l'alerte
-    native;
     alert("Article ajouté avec succès !");
     title.value = "";
     content.value = "";
