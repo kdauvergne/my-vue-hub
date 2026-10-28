@@ -22,6 +22,16 @@ const router = createRouter({
       path: "/home",
       component: Home,
     },
+    {
+      path: "/inscription",
+      component: () => import("../views/auth/register.vue"),
+      meta: { title: "Inscription" },
+    },
+    {
+      path: "/connexion",
+      component: () => import("../views/auth/login.vue"),
+      meta: { title: "Connexion" },
+    },
 
     ...lessonsRoutes,
     ...exercicesRoutes,
