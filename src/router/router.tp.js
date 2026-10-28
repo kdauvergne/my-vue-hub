@@ -39,6 +39,11 @@ const tpRoutes = [
     component: () => import("../views/tp/TP-component-communication.vue"),
     meta: { title: "TP Component communication" },
   },
+  {
+    path: "/tp/TP-computed-properties",
+    component: () => import("../views/tp/TP-computed-properties.vue"),
+    meta: { title: "TP Computed Properties" },
+  },
 ];
 
 export default tpRoutes;
