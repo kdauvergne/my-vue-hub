@@ -47,10 +47,24 @@
           </li>
         </ul>
       </div>
+      <RouterLink to="/connexion" class="btn btn-sm btn-neutral m-1"
+        >Connexion</RouterLink
+      >
+      <RouterLink to="/inscription" class="btn btn-sm btn-accent m-1"
+        >Inscription</RouterLink
+      >
       <!-- Theme -->
       <div class="dropdown dropdown-end">
-        <div tabindex="0" role="button" class="btn m-1">
-          Theme
+        <div tabindex="0" role="button" class="btn btn-ghost m-1">
+          <div
+            class="bg-base-100 border-base-content/10 grid shrink-0 grid-cols-2 gap-0.5 rounded-md border p-1"
+          >
+            <div class="bg-base-content size-1 rounded-full"></div>
+            <div class="bg-primary size-1 rounded-full"></div>
+            <div class="bg-secondary size-1 rounded-full"></div>
+            <div class="bg-accent size-1 rounded-full"></div>
+          </div>
+
           <svg
             width="12px"
             height="12px"
@@ -67,50 +81,27 @@
           tabindex="-1"
           class="dropdown-content bg-base-300 rounded-box z-1 w-52 p-2 shadow-2xl"
         >
-          <li>
-            <input
-              type="radio"
-              name="theme-dropdown"
-              class="theme-controller w-full btn btn-sm btn-block btn-ghost justify-start"
-              aria-label="Default"
-              value="default"
-            />
-          </li>
-          <li>
-            <input
-              type="radio"
-              name="theme-dropdown"
-              class="theme-controller w-full btn btn-sm btn-block btn-ghost justify-start"
-              aria-label="Retro"
-              value="retro"
-            />
-          </li>
-          <li>
-            <input
-              type="radio"
-              name="theme-dropdown"
-              class="theme-controller w-full btn btn-sm btn-block btn-ghost justify-start"
-              aria-label="Cyberpunk"
-              value="cyberpunk"
-            />
-          </li>
-          <li>
-            <input
-              type="radio"
-              name="theme-dropdown"
-              class="theme-controller w-full btn btn-sm btn-block btn-ghost justify-start"
-              aria-label="Valentine"
-              value="valentine"
-            />
-          </li>
-          <li>
-            <input
-              type="radio"
-              name="theme-dropdown"
-              class="theme-controller w-full btn btn-sm btn-block btn-ghost justify-start"
-              aria-label="Aqua"
-              value="aqua"
-            />
+          <li v-for="theme in themes" :key="theme.value">
+            <label
+              class="btn btn-sm btn-block btn-ghost justify-start has-checked:btn-active"
+            >
+              <input
+                type="radio"
+                name="theme-dropdown"
+                class="theme-controller hidden"
+                :value="theme.value"
+              />
+              <div
+                :data-theme="theme.preview"
+                class="bg-base-100 grid shrink-0 grid-cols-2 gap-0.5 rounded-md p-1 shadow-sm"
+              >
+                <div class="bg-base-content size-1 rounded-full"></div>
+                <div class="bg-primary size-1 rounded-full"></div>
+                <div class="bg-secondary size-1 rounded-full"></div>
+                <div class="bg-accent size-1 rounded-full"></div>
+              </div>
+              {{ theme.label }}
+            </label>
           </li>
         </ul>
       </div>
@@ -135,4 +126,12 @@ const tps = useRouter()
 
 // Le dropdown daisyUI reste ouvert tant qu'il a le focus : on le retire après un clic sur un lien
 const closeMenu = () => document.activeElement?.blur();
+
+const themes = [
+  { label: "Default", value: "default", preview: "fantasy" },
+  { label: "Retro", value: "retro", preview: "retro" },
+  { label: "Cyberpunk", value: "cyberpunk", preview: "cyberpunk" },
+  { label: "Valentine", value: "valentine", preview: "valentine" },
+  { label: "Aqua", value: "aqua", preview: "aqua" },
+];
 </script>
