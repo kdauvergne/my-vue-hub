@@ -52,6 +52,14 @@ const filteredTickets = computed(() =>
       t.priorite.includes(priority.value),
   ),
 );
+
+const nbFiltered = computed(() => filteredTickets.value.length);
+
+const stats = computed(() => {
+  const nb = filteredTickets.value.filter((t) => t.priorite === "Haute").length;
+  const percentage = (nb / nbFiltered.value) * 100;
+  return Math.round(percentage);
+});
 </script>
 
 <template>
@@ -68,11 +76,13 @@ const filteredTickets = computed(() =>
       <div class="card bg-base-100 shadow-md">
         <div class="card-body">
           <h2 class="card-title">Tickets affichés</h2>
+          <p class="text-2xl text-center font-bold">{{ nbFiltered }}</p>
         </div>
       </div>
       <div class="card bg-base-100 shadow-md">
         <div class="card-body">
           <h2 class="card-title">Part de tickets "Urgent"</h2>
+          <p class="text-2xl text-center font-bold">{{ stats }} %</p>
         </div>
       </div>
     </section>
