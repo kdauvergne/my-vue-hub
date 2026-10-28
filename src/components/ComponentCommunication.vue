@@ -1,7 +1,15 @@
-<script lang="ts" setup>
+<script lang="js" setup>
 import { ref } from "vue";
 import ActiveUser from "./ActiveUser.vue";
 import UserData from "./UserData.vue";
+
+const name = ref("");
+const age = ref(0);
+
+const updateUser = (newName, newAge) => {
+  name.value = newName;
+  age.value = Number(newAge);
+};
 </script>
 
 <template>
@@ -11,10 +19,10 @@ import UserData from "./UserData.vue";
     </h2>
 
     <div class="card bg-base-100 shadow-sm">
-      <ActiveUser />
+      <ActiveUser :name="name" :age="age" />
     </div>
     <div class="card bg-base-100 shadow-sm">
-      <UserData />
+      <UserData @update-user="updateUser" />
     </div>
     <h3 class="text-m text-center justify-center">ComponentCommunication</h3>
   </div>
