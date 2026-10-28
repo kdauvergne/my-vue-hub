@@ -34,6 +34,11 @@ const tpRoutes = [
     component: () => import("../views/exercices/ExerciceEmits.vue"),
     meta: { title: "TP Emits" },
   },
+  {
+    path: "/tp/TP-component-communication",
+    component: () => import("../views/tp/TP-component-communication.vue"),
+    meta: { title: "TP Component communication" },
+  },
 ];
 
 export default tpRoutes;
