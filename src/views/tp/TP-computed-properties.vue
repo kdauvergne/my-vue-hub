@@ -57,7 +57,11 @@ const nbFiltered = computed(() => filteredTickets.value.length);
 
 const stats = computed(() => {
   const nb = filteredTickets.value.filter((t) => t.priorite === "Haute").length;
+
+  if (nbFiltered.value === 0) return 0;
+
   const percentage = (nb / nbFiltered.value) * 100;
+
   return Math.round(percentage);
 });
 </script>
@@ -104,7 +108,11 @@ const stats = computed(() => {
               v-model="priority"
             >
               <option disabled selected>Filtrer par priorité</option>
-              <option value="" v-for="priorite in priorites" :key="priorite">
+              <option
+                :value="priorite"
+                v-for="priorite in priorites"
+                :key="priorite"
+              >
                 {{ priorite }}
               </option>
             </select>
@@ -123,7 +131,17 @@ const stats = computed(() => {
               v-for="ticket in filteredTickets"
               :key="ticket.id"
             >
-              {{ ticket.titre }}
+              <div class="list-col-grow">{{ ticket.titre }}</div>
+              <span
+                class="badge"
+                :class="{
+                  'badge-error': ticket.priorite === 'Haute',
+                  'badge-warning': ticket.priorite === 'Moyenne',
+                  'badge-info': ticket.priorite === 'Basse',
+                }"
+              >
+                {{ ticket.priorite }}</span
+              >
             </li>
           </ul>
         </div>
