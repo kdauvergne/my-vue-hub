@@ -1,5 +1,57 @@
 <script lang="js" setup>
-import { ref } from "vue";
+import { computed, ref } from "vue";
+
+const priorites = ref(["Haute", "Basse", "Moyenne"]);
+
+const tickets = ref([
+  {
+    id: 1,
+    titre: "Impossible de se connecter à la base de données",
+    categorie: "Infrastructure",
+    priorite: "Haute",
+  },
+  {
+    id: 2,
+    titre: "Erreur 500 lors de la validation du panier",
+    categorie: "Backend",
+    priorite: "Haute",
+  },
+  {
+    id: 3,
+    titre: "Le bouton de déconnexion est mal aligné sur mobile",
+    categorie: "UI/UX",
+    priorite: "Basse",
+  },
+  {
+    id: 4,
+    titre: "Lenteur excessive sur l'affichage du tableau de bord",
+    categorie: "Performance",
+    priorite: "Moyenne",
+  },
+  {
+    id: 5,
+    titre: "Le formulaire de contact n'envoie pas d'email",
+    categorie: "Backend",
+    priorite: "Moyenne",
+  },
+  {
+    id: 6,
+    titre: "Mettre à jour le logo dans le header",
+    categorie: "UI/UX",
+    priorite: "Basse",
+  },
+]);
+
+const title = ref("");
+const priority = ref("");
+
+const filteredTickets = computed(() =>
+  tickets.value.filter(
+    (t) =>
+      t.titre.toLowerCase().includes(title.value.toLowerCase()) &&
+      t.priorite.includes(priority.value),
+  ),
+);
 </script>
 
 <template>
@@ -34,11 +86,17 @@ import { ref } from "vue";
               type="text"
               placeholder="Ex: base de données..."
               class="input input-bordered w-full"
+              v-model="title"
             />
 
-            <select class="select select-bordered w-full md:w-64">
+            <select
+              class="select select-bordered w-full md:w-64"
+              v-model="priority"
+            >
               <option disabled selected>Filtrer par priorité</option>
-              <option>Option</option>
+              <option value="" v-for="priorite in priorites" :key="priorite">
+                {{ priorite }}
+              </option>
             </select>
           </div>
         </div>
@@ -50,7 +108,13 @@ import { ref } from "vue";
         <div class="card-body">
           <h2 class="card-title">Liste des incidents</h2>
           <ul class="list bg-base-100 rounded-box">
-            <li class="list-row">Ticket 1</li>
+            <li
+              class="list-row"
+              v-for="ticket in filteredTickets"
+              :key="ticket.id"
+            >
+              {{ ticket.titre }}
+            </li>
           </ul>
         </div>
       </div>
