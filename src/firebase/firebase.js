@@ -6,14 +6,13 @@ import { getDatabase } from "firebase/database";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDSU59EcYhUnyN8AmZafxJ7JglCS0PGKCM",
-  authDomain: "my-base-hub.firebaseapp.com",
-  databaseURL:
-    "https://my-base-hub-default-rtdb.europe-west1.firebasedatabase.app",
-  projectId: "my-base-hub",
-  storageBucket: "my-base-hub.firebasestorage.app",
-  messagingSenderId: "460552298895",
-  appId: "1:460552298895:web:35534934e1eafd532febfa",
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  databaseURL: import.meta.env.VITE_FIREBASE_DATABASE_URL,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
 };
 
 // Initialize Firebase
