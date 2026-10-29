@@ -8,6 +8,7 @@ import lessonsRoutes from "./router.lessons";
 import exercicesRoutes from "./router.exercices";
 import tpRoutes from "./router.tp";
 import DetailPage from "../components/DetailPage.vue";
+import { getCurrentUser } from "../services/AuthService";
 
 const router = createRouter({
   history: createWebHistory(),
@@ -72,4 +73,20 @@ const router = createRouter({
     },
   ],
 });
+
+// Navigation guard pour vérifier l'authentification avant d'accéder aux routes protégées
+// (Middleware)
+router.beforeEach(async (to, from, next) => {
+  // Vérifie si la route nécessite une authentification
+  const requiresAuth = to.matched.some((record) => record.meta.requiresAuth);
+  // Récupère l'utilisateur actuel de manière asynchrone
+  const currentUser = await getCurrentUser();
+  // Si la route nécessite une authentification et que l'utilisateur n'est pas connecté, redirige vers la page d'authentification
+  if (requiresAuth && !currentUser) {
+    return next("/connexion");
+  }
+  // Sinon, continue vers la route demandée
+  next();
+});
+
 export default router;
