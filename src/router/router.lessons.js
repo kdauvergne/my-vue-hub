@@ -22,9 +22,19 @@ const lessonsRoutes = [
     meta: { title: "Setup Vue" },
   },
   {
+    path: "/lessons/syntax",
+    component: () => import("../views/lessons/lesson-syntax.vue"),
+    meta: { title: "Syntaxe Options vs Composition" },
+  },
+  {
     path: "/lessons/text-interpolation",
     component: () => import("../views/lessons/lesson-text-interpolation.vue"),
     meta: { title: "Text interpolation" },
+  },
+  {
+    path: "/lessons/inline-templating",
+    component: () => import("../views/lessons/lesson-inline-templating.vue"),
+    meta: { title: "Inline templating (v-html)" },
   },
   {
     path: "/lessons/attribute-binding",
@@ -86,6 +96,21 @@ const lessonsRoutes = [
     path: "/lessons/emit",
     component: () => import("../views/lessons/lesson-emit.vue"),
     meta: { title: "Emit" },
+  },
+  {
+    path: "/lessons/lib-pinia",
+    component: () => import("../views/lessons/lesson-lib-pinia.vue"),
+    meta: { title: "Librairie : Pinia" },
+  },
+  {
+    path: "/lessons/lib-marked",
+    component: () => import("../views/lessons/lesson-lib-marked.vue"),
+    meta: { title: "Librairie : Marked" },
+  },
+  {
+    path: "/lessons/lib-chartjs",
+    component: () => import("../views/lessons/lesson-lib-chartjs.vue"),
+    meta: { title: "Librairie : Chart.js" },
   },
 ];
 

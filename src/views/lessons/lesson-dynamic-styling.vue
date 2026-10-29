@@ -1,185 +1,181 @@
 <template>
-  <div class="container mx-auto p-4 md:p-8">
-    <div class="text-center mb-8">
+  <div class="container mx-auto p-4 md:p-8 space-y-8">
+    <div class="text-center">
       <h1 class="text-4xl md:text-5xl font-extrabold text-primary">
         Dynamic Styling avec Vue.js
       </h1>
-      <p class="text-lg md:text-xl text-base-content opacity-75 mt-2">
-        Apprenez comment utiliser <code>v-bind</code> pour appliquer des styles
-        et des classes dynamiquement dans Vue.js.
+      <p class="text-lg md:text-xl text-base-content opacity-75 mt-2 max-w-2xl mx-auto">
+        Apprenez à utiliser <code class="text-secondary">v-bind</code> pour appliquer dynamiquement des styles en ligne et des classes CSS.
       </p>
     </div>
 
     <!-- Section Théorie -->
-    <section id="theory" class="mb-8">
-      <div class="card bg-base-100 shadow-xl rounded-box p-6">
-        <h2 class="card-title text-2xl font-bold mb-3">
-          Qu'est-ce que le Dynamic Styling ?
-        </h2>
+    <section id="theory">
+      <div class="card bg-base-100 shadow-xl border border-base-300 p-6">
+        <h2 class="card-title text-2xl font-bold mb-3">Qu'est-ce que le Dynamic Styling ?</h2>
         <p class="text-base-content opacity-80">
-          Vue.js permet de modifier dynamiquement les styles CSS et les classes
-          d'un élément en utilisant la directive <code>v-bind</code>. Cela
-          permet de rendre vos applications plus interactives et réactives.
+          Vue.js permet de modifier l'apparence des éléments HTML en liant réactivement l'attribut <code class="text-secondary">style</code> ou <code class="text-secondary">class</code> à des données de votre composant.
         </p>
-        <div class="alert alert-info mt-4 rounded-box">
+        <div class="alert alert-info mt-4 rounded-box shadow-sm">
           <span class="flex items-center space-x-2">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              class="stroke-current shrink-0 w-6 h-6"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-              ></path>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current shrink-0 w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
             </svg>
             <span class="font-bold">Principaux usages :</span>
           </span>
-          <ul class="list-disc list-inside mt-2 ml-4">
-            <li>Changer l'apparence en fonction de l'état d'une donnée.</li>
-            <li>Appliquer plusieurs classes ou styles conditionnels.</li>
+          <ul class="list-disc list-inside mt-2 ml-4 space-y-1">
+            <li>Ajuster la mise en forme (couleur, taille) selon l'état réactif.</li>
+            <li>Appliquer conditionnellement des classes CSS (ex. : succès, erreur, actif).</li>
+            <li>Combiner plusieurs objets ou tableaux de styles et classes.</li>
           </ul>
         </div>
       </div>
     </section>
 
-    <div class="flex flex-col lg:flex-row gap-6">
-      <!-- Exemple 1 : Style Dynamique avec v-bind:style -->
-      <div class="lg:w-1/2">
-        <div class="card bg-base-100 shadow-xl rounded-box p-6">
-          <h2 class="card-title text-2xl font-bold mb-3">
-            Exemple 1 : Dynamic Styling avec <code>v-bind:style</code>
-          </h2>
-          <p class="text-base-content opacity-80 mb-4">
-            Cet exemple montre comment appliquer un style dynamique basé sur une
-            donnée réactive :
-          </p>
-          <div class="mockup-code p-4 mb-4">
-            <pre class="whitespace-pre-wrap"><code>
-  &lt;template&gt;
-    &lt;div&gt;
-      &lt;p :style="dynamicStyle"&gt;Texte stylé dynamiquement&lt;/p&gt;
-      &lt;button class="btn btn-primary" @click="changeColor"&gt;Changer la couleur&lt;/button&gt;
-    &lt;/div&gt;
-  &lt;/template&gt;
-  
-  &lt;script setup&gt;
-  import { ref } from 'vue';
-  
-  const dynamicStyle = ref({
-    color: 'blue',
-    fontSize: '18px',
-  });
-  
-  function changeColor() {
-    dynamicStyle.value.color = dynamicStyle.value.color === 'blue' ? 'red' : 'blue';
-  }
-  &lt;/script&gt;
-  </code></pre>
-          </div>
-          <div class="p-4 bg-base-200 rounded-box shadow-md text-center">
-            <p :style="dynamicStyle" class="text-lg font-bold mb-4">
-              Texte stylé dynamiquement
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <!-- Exemple 1 : Styles en ligne dynamiques -->
+      <div class="card bg-base-100 shadow-xl rounded-box border border-base-300">
+        <div class="card-body flex flex-col justify-between">
+          <div>
+            <h2 class="card-title text-2xl font-bold mb-2">Exemple 1 : Lier l'attribut <code class="text-secondary">:style</code></h2>
+            <p class="text-sm text-base-content/70 mb-4">
+              Application d'un objet de styles CSS géré réactivement :
             </p>
-            <button class="btn btn-primary" @click="changeColor">
-              Changer la couleur
-            </button>
+
+            <!-- Code Shiki -->
+            <div v-if="codeStyleHighlighted" v-html="codeStyleHighlighted" class="overflow-x-auto rounded-lg text-sm mb-4"></div>
+            <div v-else class="skeleton h-64 w-full rounded-lg mb-4"></div>
+          </div>
+
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-base-content/50 mb-1 block">Rendu interactif :</span>
+            <div class="p-4 bg-base-200/50 rounded-box border border-base-300 text-center space-y-3">
+              <p :style="dynamicStyle" class="text-lg font-bold transition-all duration-300">
+                Texte stylé dynamiquement
+              </p>
+              <button class="btn btn-primary btn-sm rounded-box" @click="changeColor">
+                Changer la couleur
+              </button>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- Exemple 2 : Classes Dynamiques avec v-bind:class -->
-      <div class="lg:w-1/2">
-        <div class="card bg-base-100 shadow-xl rounded-box p-6">
-          <h2 class="card-title text-2xl font-bold mb-3">
-            Exemple 2 : Dynamic Styling avec <code>v-bind:class</code>
-          </h2>
-          <p class="text-base-content opacity-80 mb-4">
-            Cet exemple montre comment appliquer des classes dynamiquement en
-            fonction de l'état d'une donnée :
-          </p>
-          <div class="mockup-code p-4 mb-4">
-            <pre class="whitespace-pre-wrap"><code>
-  &lt;template&gt;
-    &lt;div&gt;
-      &lt;p :class="{'text-success': isActive, 'text-danger': !isActive}"&gt;Statut : {{ isActive ? 'Actif' : 'Inactif' }}&lt;/p&gt;
-      &lt;button class="btn btn-secondary" @click="toggleStatus"&gt;Changer le statut&lt;/button&gt;
-    &lt;/div&gt;
-  &lt;/template&gt;
-  
-  &lt;script setup&gt;
-  import { ref } from 'vue';
-  
-  const isActive = ref(true);
-  
-  function toggleStatus() {
-    isActive.value = !isActive.value;
-  }
-  &lt;/script&gt;
-  </code></pre>
-          </div>
-          <div class="p-4 bg-base-200 rounded-box shadow-md text-center">
-            <p
-              :class="[
-                'font-bold',
-                { 'text-success': isActive, 'text-error': !isActive },
-              ]"
-              class="text-xl mb-4"
-            >
-              Statut : {{ isActive ? "Actif" : "Inactif" }}
+      <!-- Exemple 2 : Classes CSS dynamiques -->
+      <div class="card bg-base-100 shadow-xl rounded-box border border-base-300">
+        <div class="card-body flex flex-col justify-between">
+          <div>
+            <h2 class="card-title text-2xl font-bold mb-2">Exemple 2 : Lier l'attribut <code class="text-secondary">:class</code></h2>
+            <p class="text-sm text-base-content/70 mb-4">
+              Bascule de classes CSS à l'aide d'une condition booléenne :
             </p>
-            <button class="btn btn-secondary" @click="toggleStatus">
-              Changer le statut
-            </button>
+
+            <!-- Code Shiki -->
+            <div v-if="codeClassHighlighted" v-html="codeClassHighlighted" class="overflow-x-auto rounded-lg text-sm mb-4"></div>
+            <div v-else class="skeleton h-64 w-full rounded-lg mb-4"></div>
+          </div>
+
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-base-content/50 mb-1 block">Rendu interactif :</span>
+            <div class="p-4 bg-base-200/50 rounded-box border border-base-300 text-center space-y-3">
+              <p :class="['font-bold', 'text-xl', 'transition-colors', 'duration-300', { 'text-success': isActive, 'text-error': !isActive }]">
+                Statut : {{ isActive ? 'Actif' : 'Inactif' }}
+              </p>
+              <button class="btn btn-secondary btn-sm rounded-box" @click="toggleStatus">
+                Changer le statut
+              </button>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
     <!-- Footer -->
-    <div class="text-center mt-8">
+    <div class="text-center">
       <p class="text-sm opacity-75">
-        Pour en savoir plus sur le dynamic styling, consultez la
-        <a
-          href="https://vuejs.org/guide/essentials/class-and-style.html"
-          class="link link-hover link-primary"
-          target="_blank"
-        >
-          documentation officielle de Vue.js </a
-        >.
+        Pour en savoir plus sur le dynamic styling, consulte la
+        <a href="https://vuejs.org/guide/essentials/class-and-style.html" class="link link-hover link-primary font-bold" target="_blank">
+          documentation officielle de Vue.js
+        </a>.
       </p>
     </div>
   </div>
 </template>
 
+<script setup lang="ts">
+import { ref, onMounted } from 'vue';
+import type { CSSProperties } from 'vue';
+import { codeToHtml } from 'shiki';
+
+// --- Exemple 1 : Dynamic Style ---
+const dynamicStyle = ref<CSSProperties>({
+  color: 'blue',
+  fontSize: '18px',
+});
+
+function changeColor(): void {
+  dynamicStyle.value.color = dynamicStyle.value.color === 'blue' ? 'red' : 'blue';
+}
+
+// --- Exemple 2 : Dynamic Class ---
+const isActive = ref<boolean>(true);
+
+function toggleStatus(): void {
+  isActive.value = !isActive.value;
+}
+
+// --- Snippets bruts pour Shiki ---
+const snippetStyle = `<template>
+  <div>
+    <p :style="dynamicStyle">Texte stylé dynamiquement</p>
+    <button @click="changeColor">Changer la couleur</button>
+  </div>
+</template>
+
 <script setup>
-import { ref } from "vue";
+import { ref } from 'vue';
 
-const activeColor = ref("red");
-const myFont = ref(30);
-
-// Exemple 1 : Style Dynamique
 const dynamicStyle = ref({
-  color: "blue",
-  fontSize: "18px",
+  color: 'blue',
+  fontSize: '18px',
 });
 
 function changeColor() {
   dynamicStyle.value.color =
-    dynamicStyle.value.color === "blue" ? "red" : "blue";
+    dynamicStyle.value.color === 'blue' ? 'red' : 'blue';
 }
+<\/script>`;
 
-// Exemple 2 : Classes Dynamiques
+const snippetClass = `<template>
+  <div>
+    <p :class="{ 'text-success': isActive, 'text-error': !isActive }">
+      Statut : {{ isActive ? 'Actif' : 'Inactif' }}
+    </p>
+    <button @click="toggleStatus">Changer le statut</button>
+  </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
 const isActive = ref(true);
 
 function toggleStatus() {
   isActive.value = !isActive.value;
 }
-</script>
+<\/script>`;
 
-<style scoped lang="css">
-/* Les styles sont gérés par DaisyUI et Tailwind, pas de CSS nécessaire ici. */
-</style>
+// --- Variables d'état pour le HTML coloré ---
+const codeStyleHighlighted = ref<string>('');
+const codeClassHighlighted = ref<string>('');
+
+onMounted(async () => {
+  const [styleCode, classCode] = await Promise.all([
+    codeToHtml(snippetStyle, { lang: 'vue', theme: 'vitesse-dark' }),
+    codeToHtml(snippetClass, { lang: 'vue', theme: 'vitesse-dark' }),
+  ]);
+
+  codeStyleHighlighted.value = styleCode;
+  codeClassHighlighted.value = classCode;
+});
+</script>
