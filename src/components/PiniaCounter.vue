@@ -1,5 +1,44 @@
 <template>
-  <div class="flex flex-col items-center gap-2">
-    <span class="text-4xl font-bold">0</span>
+  <div class="container mt-5 text-center">
+    <h1 class="display-4 text-primary">Compteur avec Pinia</h1>
+    <p class="fs-5">Gérez un compteur avec l'état global fourni par Pinia.</p>
+
+    <!-- Affichage du compteur -->
+    <div class="my-4">
+      <h2 class="text-success">{{ counterStoreInComponent.count }}</h2>
+    </div>
+
+    <!-- Boutons d'action -->
+    <div class="btn-group">
+      <button
+        class="btn btn-primary"
+        @click="counterStoreInComponent.increment"
+      >
+        Incrémenter
+      </button>
+      <button class="btn btn-danger" @click="counterStoreInComponent.decrement">
+        Décrémenter
+      </button>
+      <button
+        class="btn btn-accent"
+        @click="counterStoreInComponent.incrementBy(5)"
+      >
+        Incrémenter de 5
+      </button>
+      <button
+        class="btn btn-info"
+        @click="counterStoreInComponent.decrementBy(5)"
+      >
+        Décrémenter de 5
+      </button>
+      <button class="btn btn-secondary" @click="counterStoreInComponent.reset">
+        Réinitialiser
+      </button>
+    </div>
   </div>
 </template>
+
+<script setup lang="js">
+import { useCounterStore } from "../stores/counterStore";
+const counterStoreInComponent = useCounterStore();
+</script>
