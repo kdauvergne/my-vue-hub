@@ -1,0 +1,132 @@
+{
+  "book": {
+    "titre": "Livre Cypress",
+    "auteur": "Auteur Test",
+    "auteurModifie": "Auteur Modifié",
+    "description": "Description test",
+    "datePublication": "2020-01-15",
+    "dateLimite": "2026-12-31"
+  },
+  "livres": [
+    {
+      "titre": "Le Petit Prince",
+      "auteur": "Antoine de Saint-Exupéry",
+      "description": "Un aviateur rencontre un petit prince venu d'une autre planète.",
+      "datePublication": "1943-04-06"
+    },
+    {
+      "titre": "L'Étranger",
+      "auteur": "Albert Camus",
+      "description": "Meursault, un homme indifférent, commet un meurtre sur une plage d'Alger.",
+      "datePublication": "1942-05-19"
+    },
+    {
+      "titre": "Les Misérables",
+      "auteur": "Victor Hugo",
+      "description": "Le destin de Jean Valjean, ancien forçat, dans la France du XIXe siècle.",
+      "datePublication": "1862-04-03"
+    },
+    {
+      "titre": "Germinal",
+      "auteur": "Émile Zola",
+      "description": "La vie des mineurs du nord de la France et leur grève.",
+      "datePublication": "1885-03-02"
+    },
+    {
+      "titre": "Madame Bovary",
+      "auteur": "Gustave Flaubert",
+      "description": "Emma Bovary s'ennuie dans sa vie de province et rêve d'autre chose.",
+      "datePublication": "1857-04-15"
+    },
+    {
+      "titre": "Le Comte de Monte-Cristo",
+      "auteur": "Alexandre Dumas",
+      "description": "Edmond Dantès, emprisonné à tort, prépare sa vengeance.",
+      "datePublication": "1844-08-28"
+    },
+    {
+      "titre": "Notre-Dame de Paris",
+      "auteur": "Victor Hugo",
+      "description": "Quasimodo, le sonneur de cloches, et la belle Esmeralda.",
+      "datePublication": "1831-03-16"
+    },
+    {
+      "titre": "Le Rouge et le Noir",
+      "auteur": "Stendhal",
+      "description": "L'ascension de Julien Sorel dans la société de la Restauration.",
+      "datePublication": "1830-11-13"
+    },
+    {
+      "titre": "Candide",
+      "auteur": "Voltaire",
+      "description": "Candide parcourt le monde et découvre que tout ne va pas pour le mieux.",
+      "datePublication": "1759-01-15"
+    },
+    {
+      "titre": "La Peste",
+      "auteur": "Albert Camus",
+      "description": "Une épidémie de peste frappe la ville d'Oran.",
+      "datePublication": "1947-06-10"
+    },
+    {
+      "titre": "Le Père Goriot",
+      "auteur": "Honoré de Balzac",
+      "description": "Un père se ruine pour ses deux filles dans le Paris du XIXe siècle.",
+      "datePublication": "1835-03-01"
+    },
+    {
+      "titre": "Les Trois Mousquetaires",
+      "auteur": "Alexandre Dumas",
+      "description": "D'Artagnan rejoint Athos, Porthos et Aramis au service du roi.",
+      "datePublication": "1844-03-14"
+    },
+    {
+      "titre": "Vingt mille lieues sous les mers",
+      "auteur": "Jules Verne",
+      "description": "Le capitaine Nemo et son sous-marin, le Nautilus.",
+      "datePublication": "1870-06-20"
+    },
+    {
+      "titre": "Le Tour du monde en quatre-vingts jours",
+      "auteur": "Jules Verne",
+      "description": "Phileas Fogg parie qu'il peut faire le tour du monde en 80 jours.",
+      "datePublication": "1872-12-22"
+    },
+    {
+      "titre": "Bel-Ami",
+      "auteur": "Guy de Maupassant",
+      "description": "Georges Duroy grimpe dans la société parisienne grâce aux femmes.",
+      "datePublication": "1885-05-01"
+    },
+    {
+      "titre": "Le Horla",
+      "auteur": "Guy de Maupassant",
+      "description": "Un homme se sent hanté par une présence invisible.",
+      "datePublication": "1887-05-01"
+    },
+    {
+      "titre": "L'Assommoir",
+      "auteur": "Émile Zola",
+      "description": "Gervaise, blanchisseuse, lutte contre la misère et l'alcool.",
+      "datePublication": "1877-01-01"
+    },
+    {
+      "titre": "Les Fleurs du mal",
+      "auteur": "Charles Baudelaire",
+      "description": "Recueil de poèmes sur le spleen, l'idéal et la beauté.",
+      "datePublication": "1857-06-25"
+    },
+    {
+      "titre": "Le Grand Meaulnes",
+      "auteur": "Alain-Fournier",
+      "description": "Augustin Meaulnes cherche un domaine mystérieux découvert par hasard.",
+      "datePublication": "1913-10-01"
+    },
+    {
+      "titre": "Bonjour tristesse",
+      "auteur": "Françoise Sagan",
+      "description": "Un été sur la Côte d'Azur, Cécile manipule son entourage.",
+      "datePublication": "1954-03-15"
+    }
+  ]
+}
