@@ -16,3 +16,5 @@ jobs:
         uses: cypress-io/github-action@v7
         with:
           install: false
+          start: bun run dev
+          wait-on: "http://localhost:5173"
